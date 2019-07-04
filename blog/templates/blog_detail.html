@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="breadcumb-area">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item">
+                <a href="{% url 'blog:filter' slug=blog.category.slug %}">{{ blog.category.name }}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">{{ blog.name }}</li>
+        </ol>
+    </nav>
+</div>
+
+
+<div class="clever-catagory blog-details bg-img d-flex align-items-center justify-content-center p-3 height-400" style="background-image: url({{ blog.image.url }});">
+    <div class="blog-details-headline">
+        <h3>{{ blog.name }}</h3>
+        <div class="meta d-flex align-items-center justify-content-center">
+            <a href="#">{{ blog.user }}</a>
+        </div>
+    </div>
+</div>
+
+<div class="blog-details-content section-padding-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <!-- Blog Details Text -->
+                <div class="blog-details-text">
+
+                    {{ blog.text_all }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="related-posts section-padding-100-0">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Single Blog Area -->
+                {% if blog_prev %}
+                
+                    <div class="col-12 col-lg-6">
+                        <div class="single-blog-area mb-100">
+                            <img src="{{ blog_prev.preview_image.url }}" alt="">
+                            <!-- Blog Content -->
+                            <div class="blog-content">
+                                <a href="#" class="blog-headline">
+                                    <h4>{{ blog_prev.name }}</h4>
+                                </a>
+                                <div class="meta d-flex align-items-center">
+                                    <a href="#">{{ blog_prev.user }}</a>
+                                </div>
+                                <p> {{ blog_prev.text }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
+
+                <!-- Single Blog Area -->
+                {% if blog_next %}
+                
+                    <div class="col-12 col-lg-6">
+                        <div class="single-blog-area mb-100">
+                            <img src="{{ blog.preview_image.url }}" alt="">
+                            <!-- Blog Content -->
+                            <div class="blog-content">
+                                <a href="#" class="blog-headline">
+                                    <h4>{{ blog_next.name }}</h4>
+                                </a>
+                                <div class="meta d-flex align-items-center">
+                                    <a href="#">{{ blog.user }}</a>
+                                </div>
+                                <p>{{ blog.text }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Post A Comment -->
+            <div class="col-12 col-lg-6">
+                <div class="post-a-comments mb-70">
+                    <h4>Post a Comment</h4>
+
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="blog" value="{{ blog.id }}">
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    <input name="name" type="text" class="form-control" id="text" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea name="text" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn clever-btn w-100">Post A Comment</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <!-- Comments -->
+            <div class="col-12 col-lg-6">
+                <div class="comments-area">
+                    <h4>Comments ({{ comments_count }})</h4>
+
+                    <ol class="comments-list">
+                        <!-- Single Comment Area -->
+                        {% for v in comments %}
+                        
+                            <li class="single_comment_area">
+                                <!-- Single Comment -->
+                                <div class="single-comment-wrap mb-30">
+                                    <div class="d-flex justify-content-between mb-30">
+                                        <!-- Comment Admin -->
+                                        <div class="comment-admin d-flex">
+                                            <div class="thumb">
+                                                {% comment %} <img src="img/bg-img/t1.png" alt=""> {% endcomment %}
+                                            </div>
+                                            <div class="text">
+                                                <h6>{{ v.name }}</h6>
+                                                <span>{{ v.date }}</span>
+                                            </div>
+                                        </div>
+                                        <!-- Reply -->
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis.</p>
+                                </div>
+                            </li>
+                        {% endfor %}
+                        {% comment %} <li class="single_comment_area mb-30">
+                            <!-- Single Comment -->
+                            <div class="single-comment-wrap">
+                                <div class="d-flex justify-content-between mb-30">
+                                    <!-- Comment Admin -->
+                                    <div class="comment-admin d-flex">
+                                        <div class="thumb">
+                                            <img src="img/bg-img/t3.png" alt="">
+                                        </div>
+                                        <div class="text">
+                                            <h6>Sarah Parker</h6>
+                                            <span>Sep 29, 2017 at 9:48 am</span>
+                                        </div>
+                                    </div>
+                                    <!-- Reply -->
+                                    <div class="reply">
+                                        <a href="#">Reply</a>
+                                    </div>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis.</p>
+                            </div>
+                        </li> {% endcomment %}
+                    </ol>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="load-more text-center mt-50">
+                    <a href="#" class="btn clever-btn btn-2">Load More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+

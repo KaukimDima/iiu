@@ -1,0 +1,18 @@
+{% extends 'base.1.html' %}
+
+{% block content %}
+
+    <div class="row">
+        {% if succes %}
+            <h2>Спасибо за регистрацию {{ request.user.name }}</h2>
+        {% endif %}
+        {% if not role %}
+            <p>Для того чтобы вы могли работать нужно проверить ваш, профиль</p>
+        {% else %}
+            {{ role.name }}
+        {% endif %}
+        
+    
+    </div>
+
+{% endblock %}

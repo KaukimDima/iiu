@@ -1,0 +1,358 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area bg-img bg-overlay-2by5" style="background-image: url({% static 'img/bg-img/bg1.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <!-- Hero Content -->
+                    <div class="hero-content text-center">
+                        <h2>IITU</h2>
+                        <a href="#" class="btn clever-btn">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### Cool Facts Area Start ##### -->
+    <section class="cool-facts-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+
+                {% for v in advantages  %}
+                
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-cool-facts-area text-center mb-100 wow fadeInUp" data-wow-delay="250ms">
+                            <div class="icon">
+                                <img src="{{ v.icon.url }}" alt="">
+                            </div>
+                            <h2><span class="counter">{{ v.count }}</span></h2>
+                            <h5>{{ v.description }}</h5>
+                        </div>
+                    </div>
+                {% endfor %}
+                
+
+            </div>
+        </div>
+    </section>
+    <!-- ##### Cool Facts Area End ##### -->
+
+    <!-- ##### Popular Courses Start ##### -->
+    <section class="popular-courses-area section-padding-100-0" style="background-image: url({% static 'img/core-img/texture.png' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>Popular Articles</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                {% for v in blogs  %}
+                <!-- Single Popular Course -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="250ms">
+                        <img src="{{ v.preview_image.url }}" alt="">
+                        <!-- Course Content -->
+                        <div class="course-content">
+                            <h4>{{ v.name }}</h4>
+                            <div class="meta d-flex align-items-center">
+                                <a href="#">{{ v.user }}</a>
+                                {% comment %} <span><i class="fa fa-circle" aria-hidden="true"></i></span> {% endcomment %}
+                                {% comment %} <a href="#">Art &amp; Design</a> {% endcomment %}
+                            </div>
+                            <p>{{ v.text }}</p>
+                        </div>
+                        <!-- Seat Rating Fee -->
+                        <div class="seat-rating-fee d-flex justify-content-between">
+                            <div class="seat-rating h-100 d-flex align-items-center">
+                                {% comment %} <div class="seat">
+                                    <i class="fa fa-user" aria-hidden="true"></i> 10
+                                </div>
+                                <div class="rating">
+                                    <i class="fa fa-star" aria-hidden="true"></i> 4.5
+                                </div> {% endcomment %}
+                            </div>
+                            {% comment %} <div class="course-fee h-100">
+                                <a href="#" class="free">Free</a>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- ##### Popular Courses End ##### -->
+
+    <!-- ##### Best Tutors Start ##### -->
+    {% comment %} <section class="best-tutors-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>The Best Tutors in Town</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="tutors-slide owl-carousel wow fadeInUp" data-wow-delay="250ms">
+
+                        <!-- Single Tutors Slide -->
+                        <div class="single-tutors-slides">
+                            <!-- Tutor Thumbnail -->
+                            <div class="tutor-thumbnail">
+                                <img src="{% static 'img/bg-img/t1.png' %}" alt="">
+                            </div>
+                            <!-- Tutor Information -->
+                            <div class="tutor-information text-center">
+                                <h5>Alex Parker</h5>
+                                <span>Teacher</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.</p>
+                                <div class="social-info">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Tutors Slide -->
+                        <div class="single-tutors-slides">
+                            <!-- Tutor Thumbnail -->
+                            <div class="tutor-thumbnail">
+                                <img src="{% static 'img/bg-img/t2.png' %}" alt="">
+                            </div>
+                            <!-- Tutor Information -->
+                            <div class="tutor-information text-center">
+                                <h5>Alex Parker</h5>
+                                <span>Teacher</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.</p>
+                                <div class="social-info">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Tutors Slide -->
+                        <div class="single-tutors-slides">
+                            <!-- Tutor Thumbnail -->
+                            <div class="tutor-thumbnail">
+                                <img src="{% static 'img/bg-img/t3.png' %}" alt="">
+                            </div>
+                            <!-- Tutor Information -->
+                            <div class="tutor-information text-center">
+                                <h5>Alex Parker</h5>
+                                <span>Teacher</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.</p>
+                                <div class="social-info">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Tutors Slide -->
+                        <div class="single-tutors-slides">
+                            <!-- Tutor Thumbnail -->
+                            <div class="tutor-thumbnail">
+                                <img src="{% static 'img/bg-img/t4.png' %}" alt="">
+                            </div>
+                            <!-- Tutor Information -->
+                            <div class="tutor-information text-center">
+                                <h5>Alex Parker</h5>
+                                <span>Teacher</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.</p>
+                                <div class="social-info">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Tutors Slide -->
+                        <div class="single-tutors-slides">
+                            <!-- Tutor Thumbnail -->
+                            <div class="tutor-thumbnail">
+                                <img src="{% static 'img/bg-img/t5.png' %}" alt="">
+                            </div>
+                            <!-- Tutor Information -->
+                            <div class="tutor-information text-center">
+                                <h5>Alex Parker</h5>
+                                <span>Teacher</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.</p>
+                                <div class="social-info">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Best Tutors End ##### -->
+
+    <!-- ##### Register Now Start ##### -->
+    <section class="register-now section-padding-100-0 d-flex justify-content-between align-items-center" style="background-image: url({% static 'img/core-img/texture.png' %});">
+        <!-- Register Contact Form -->
+        <div class="register-contact-form mb-100 wow fadeInUp" data-wow-delay="250ms">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="forms">
+                            <h4>Courses For Free</h4>
+                            <form action="#" method="post">
+                                <div class="row">
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="text" placeholder="Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="phone" placeholder="Phone">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="site" placeholder="Site">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn clever-btn w-100">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Now Countdown -->
+        <div class="register-now-countdown mb-100 wow fadeInUp" data-wow-delay="500ms">
+            <h3>Register Now</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae. Donec bibendum tortor sed mi faucibus vehicula. Sed erat lorem</p>
+            <!-- Register Countdown -->
+            <div class="register-countdown">
+                <div class="events-cd d-flex flex-wrap" data-countdown="2019/03/01"></div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Register Now End ##### --> {% endcomment %}
+
+    <!-- ##### Upcoming Events Start ##### -->
+    <section class="upcoming-events section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>Upcoming events</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                {% for v in events %}
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="250ms">
+                            <!-- Events Thumb -->
+                            <div class="events-thumb">
+                                <img src="{{ v.preview_image.url }}" alt="">
+                                <h6 class="event-date">{{ v.time.date }}</h6>
+                                <h4 class="event-title">{{ v.title }}</h4>
+                            </div>
+                            <!-- Date & Fee -->
+                            <div class="date-fee d-flex justify-content-between">
+                                <div class="date">
+                                    <p><i class="fa fa-clock"></i> {{ v.time }}</p>
+                                </div>
+                                {% comment %} <div class="events-fee">
+                                    <a href="#">$45</a>
+                                </div> {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- ##### Upcoming Events End ##### -->
+
+    <!-- ##### Blog Area Start ##### -->
+    {% comment %} <section class="blog-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>From Our Blog</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Single Blog Area -->
+                <div class="col-12 col-md-6">
+                    <div class="single-blog-area mb-100 wow fadeInUp" data-wow-delay="250ms">
+                        <img src="{% static 'img/blog-img/1.jpg' %}" alt="">
+                        <!-- Blog Content -->
+                        <div class="blog-content">
+                            <a href="#" class="blog-headline">
+                                <h4>English Grammer</h4>
+                            </a>
+                            <div class="meta d-flex align-items-center">
+                                <a href="#">Sarah Parker</a>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                <a href="#">Art &amp; Design</a>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Blog Area -->
+                <div class="col-12 col-md-6">
+                    <div class="single-blog-area mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <img src="{% static 'img/blog-img/2.jpg' %}" alt="">
+                        <!-- Blog Content -->
+                        <div class="blog-content">
+                            <a href="#" class="blog-headline">
+                                <h4>English Grammer</h4>
+                            </a>
+                            <div class="meta d-flex align-items-center">
+                                <a href="#">Sarah Parker</a>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                <a href="#">Art &amp; Design</a>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim nulla, mollis eu metus in, sagittis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> {% endcomment %}
+    <!-- ##### Blog Area End ##### -->
+
+{% endblock content %}

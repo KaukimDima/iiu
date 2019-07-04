@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Login</h3>
+      </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+              {% if form.errors %}
+              <p>Your username and password didn't match. Please try again.</p>
+              {% endif %}
+              
+              {% if next %}
+              {% if user.is_authenticated %}
+              <p>Your account doesn't have access to this page. To proceed,
+                  please login with an account that has access.</p>
+              {% else %}
+              <h2>Please login to see this page. <small>без регистарации вы не имеете доступа </small></h2>
+
+              {% endif %}
+              {% endif %}
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <br />
+            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+              {% for v in form.visible_fields %}
+              <h1></h1>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Username<span class="required">*</span>
+                </label>
+                {{ v.field }} <br>
+                {{ v.label_tag }} <br>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" id="first-name" name="username" required="required" class="form-control col-md-7 col-xs-12">
+                </div>
+              </div>
+              {% endfor %}
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                  <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+              </div>
+              <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+            </form>
+
+            <form action="{% url 'login' %}">
+                {{ form.as_p }}
+              <button type="submit">submit</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
