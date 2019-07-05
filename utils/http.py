@@ -1,9 +1,13 @@
+from django.shortcuts import HttpResponseRedirect
+from django.urls import reverse 
 from frontend.models import (
     Advantage, 
     Contacts,
     Social
 ) 
 from functools import wraps
+import urllib
+
 
 def base_data():
     """
@@ -29,6 +33,12 @@ def base_data():
             return func(request, *args, **kwargs)
         return inner
     return decorator
+
+def custom_redirect(url_name, *args, **kwargs):
+    url = reverse(url_name, args = args)
+    params = urllib.parse.urlencode(kwargs)
+    return HttpResponseRedirect(url + "?%s" % params)
+
 
 
 def get_telegram_data(data):

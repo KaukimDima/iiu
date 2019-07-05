@@ -274,8 +274,8 @@
             </div>
 
             <div class="row">
-
-                {% for v in events %}
+                {% if request.user.is_authenticated %}
+                    {% for v in events %}
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="250ms">
                             <!-- Events Thumb -->
@@ -295,7 +295,10 @@
                             </div>
                         </div>
                     </div>
-                {% endfor %}
+                    {% endfor %}
+                {% else %}
+                    <h2 style="text-align: center; width: 100%;">Sorry, you should register or login</h2>
+                {% endif %}
             </div>
         </div>
     </section>

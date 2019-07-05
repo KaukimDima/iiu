@@ -11,7 +11,7 @@ def home(request, context):
     blogs = Blog.objects.order_by('-id')[:3]
     context['blogs'] = blogs
     context['events'] = events
-    
+    context['register'] if request.GET.get('register') else None
     return render(request, 'home.html', context)
 
 

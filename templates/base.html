@@ -75,7 +75,7 @@
                             <ul>
                                 <li><a href="{% url 'fronted:home' %}">Home</a></li>
                                 <li><a href="{% url 'blog:home' %}">Blog</a></li>
-                                <li><a href="{% url 'vacancy:home' %}">vacancy</a></li>
+                                <li><a href="{% url 'vacancy:home' %}">Vacancy</a></li>
                                 <li><a href="{% url 'frontend:contacts' %}">Contact</a></li>
                             </ul>
 
@@ -88,10 +88,27 @@
                             </div>
 
                             <!-- Register / Login -->
-                            <div class="register-login-area">
-                                <a href="#" class="btn">Register</a>
-                                <a href="index-login.html" class="btn active">Login</a>
-                            </div>
+                            {% if not request.user.is_authenticated %}
+                                <div class="register-login-area">
+                                    <a href="{% url 'accounts:register' %}" class="btn">Register</a>
+                                    <a href="{% url 'login' %}" class="btn active">Login</a>
+                                </div>
+                            {% else %}
+                                <div class="login-state d-flex align-items-center">
+                                    <div class="user-name mr-30">
+                                        <div class="dropdown">
+                                            <a class="dropdown-toggle" href="#" role="button" id="userName" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ request.user }}</a>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userName">
+                                                <a class="dropdown-item" href="{% url 'accounts:profile' %}">Profile</a>
+                                                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="userthumb">
+                                        <img src="{{ request.user.image }}" alt="">
+                                    </div>
+                                </div>
+                            {% endif %}
 
                         </div>
                         <!-- Nav End -->

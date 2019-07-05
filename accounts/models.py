@@ -5,6 +5,10 @@ from django.db import models
 from django.apps import apps
 from utils.models import upload_path
 from django.core.mail import send_mail
+import os
+
+def upload_path(instance, filename):
+	return os.path.join(str(instance.__class__.__name__).lower() + '/', filename)
 
 
 LEARNING_TYPE = (
@@ -69,7 +73,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_enabled = models.BooleanField(verbose_name='Активен', default=False)
     is_admin = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    # image = models.ImageField(upload_to=upload_path, null=True, blank=True)
+    image = models.ImageField(upload_to=upload_path, null=True, blank=True)
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
