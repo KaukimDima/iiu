@@ -41,6 +41,7 @@ def custom_redirect(url_name, *args, **kwargs):
 
 
 
+
 def get_telegram_data(data):
     telegram_data = data['originalDetectIntentRequest']['payload']\
             ['data']['message']['chat']

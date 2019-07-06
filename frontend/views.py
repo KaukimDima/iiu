@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from blog.models import Blog
+from .models import ContactDetail
 from events.models import Events
+from django.contrib.auth.decorators import login_required
 from utils import http
 import datetime
 
@@ -14,9 +16,11 @@ def home(request, context):
     context['register'] if request.GET.get('register') else None
     return render(request, 'home.html', context)
 
+@http.base_data()
+def contacts(request, context):
 
-def contacts(request):
+    contact_details = ContactDetail.objects.all()
+    context['contact_details'] = contact_details
 
-    context = {}    
 
-    return render(request, 'base.html', context)
+    return render(request, 'contacts.html', context)

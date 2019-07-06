@@ -24,6 +24,15 @@ class Contacts(models.Model):
     def __str__(self):
         return self.name 
 
+class ContactDetail(models.Model):
+
+    name = models.CharField(max_length=20, verbose_name="Имя видное в базе")
+    text = models.CharField(max_length=40, verbose_name='Выводимое знаечене')
+    active = models.BooleanField(verbose_name="Активный", default=True)
+
+    def __str__(self):
+        return self.name 
+
 class Social(models.Model):
 
     name = models.CharField(verbose_name="имя", max_length=30)

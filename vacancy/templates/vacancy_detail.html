@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="breadcumb-area">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'vacancy:home' %}">Vacancy</a></li>
+            <li class="breadcrumb-item">
+                {{ vacancy.name }}
+            </li>
+        </ol>
+    </nav>
+</div>
+
+
+<div class="clever-catagory blog-details bg-img d-flex align-items-center justify-content-center p-3 height-400" style="background-image: url({{ vacancy.image.url }});">
+    <div class="blog-details-headline">
+        <h3>{{ vacancy.name }}</h3>
+        <div class="meta d-flex align-items-center justify-content-center">
+            <a href="#">{{ vacancy.user }}</a>
+        </div>
+    </div>
+</div>
+
+<div class="blog-details-content section-padding-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <!-- Blog Details Text -->
+                <div class="blog-details-text">
+
+                    {{ vacancy.text_all }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="related-posts section-padding-100-0">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Single Blog Area -->
+                {% if vacancy_prev %}
+                
+                    <div class="col-12 col-lg-6">
+                        <div class="single-blog-area mb-100">
+                            <img src="{{ blog_prev.preview_image.url }}" alt="">
+                            <!-- Blog Content -->
+                            <div class="blog-content">
+                                <a href="#" class="blog-headline">
+                                    <h4>{{ blog_prev.name }}</h4>
+                                </a>
+                                <div class="meta d-flex align-items-center">
+                                    <a href="#">{{ blog_prev.user }}</a>
+                                </div>
+                                <p> {{ blog_prev.text }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
+
+                <!-- Single Blog Area -->
+                {% if vacancy_next %}
+                
+                    <div class="col-12 col-lg-6">
+                        <div class="single-blog-area mb-100">
+                            <img src="{{ blog.preview_image.url }}" alt="">
+                            <!-- Blog Content -->
+                            <div class="blog-content">
+                                <a href="#" class="blog-headline">
+                                    <h4>{{ blog_next.name }}</h4>
+                                </a>
+                                <div class="meta d-flex align-items-center">
+                                    <a href="#">{{ blog.user }}</a>
+                                </div>
+                                <p>{{ blog.text }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock content %}
+

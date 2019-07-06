@@ -1,6 +1,8 @@
-from django.shortcuts import render, HttpResponseRedirect
-from .forms import UserCreationForm, UserProfileForm
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
+from .forms import UserCreationForm, UserChangeForm
 from utils import http
+from .models import User
+from django.contrib.auth.decorators import login_required
 
 @http.base_data()
 def register(request, context):
@@ -16,15 +18,16 @@ def register(request, context):
     return render(request, 'register_user.html', context)
 
 @http.base_data()
+@login_required(login_url='/accounts/login/')
 def profile(request, context): 
 
-    data = {
-        'email' : request.user.email,
-        'surname' : request.user.surname,
-        'name' : request.user.name,
-        'patronymic' : request.user.patronymic,
-        'phone' : request.user.phone,
-    }
-    form = UserProfileForm(initial=data)
+    instance = get_object_or_404(User, id=request.user.id)
+    form = UserChangeForm(request.POST or None, instance=instance)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+
     context['form'] = form
     return render(request, 'profile.html', context)
+    

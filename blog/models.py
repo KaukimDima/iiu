@@ -37,4 +37,8 @@ class Comments(models.Model):
     email = models.CharField(verbose_name=u"Почта", max_length=50)
     text = models.TextField(verbose_name=u"Сообщение")
     date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+
     

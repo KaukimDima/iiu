@@ -6,8 +6,11 @@ from .models import (
 )
 from utils import http
 from .forms import CommentForm
+from django.contrib.auth.decorators import login_required
+
 
 @http.base_data()
+@login_required(login_url='/accounts/login/')
 def home(request, context, slug=None):
 
     categories = BlogCategory.objects.all()
@@ -29,6 +32,7 @@ def home(request, context, slug=None):
     return render(request, 'blog.html', context)
 
 @http.base_data()
+@login_required(login_url='/accounts/login/')
 def detail(request, context, slug, post_slug):
 
     try:

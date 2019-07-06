@@ -3,8 +3,9 @@ from .models import (
     Advantage,
     Contacts,
     Social, 
+    ContactDetail
 )
 
 admin.site.register([
-    Advantage, Contacts, Social
+    Advantage, Contacts, Social, ContactDetail
 ])
