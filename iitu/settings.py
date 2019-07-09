@@ -25,7 +25,7 @@ SECRET_KEY = 'l8)cnt_ol4&)%wy-46!3e*s(bjktp1iay-vas!-u+877&-q!j('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost ', '.gr.iitu.kz']
 
 
 # Application definition
@@ -81,8 +81,8 @@ WSGI_APPLICATION = 'iitu.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'iitu_db', 'PASSWORD': 'Vq6aGwwcQm', 'USER': 'iitu_user', 'HOST': '127.0.0.1', 'PORT': '3306',
     }
 }
 
@@ -124,7 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, '/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
