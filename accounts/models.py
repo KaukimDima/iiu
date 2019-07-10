@@ -72,6 +72,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     # type = models.IntegerField(verbose_name='Тип', default=0, blank=False)
     is_enabled = models.BooleanField(verbose_name='Активен', default=False)
     is_admin = models.BooleanField(default=False)
+    is_acitve = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to=upload_path, null=True, blank=True)
     objects = UserManager()
