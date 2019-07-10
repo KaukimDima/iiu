@@ -6,6 +6,10 @@ def upload_path(instance, filename):
 
 class Events(models.Model):
 
+    class Meta:
+        verbose_name = 'Мероприятия'
+        verbose_name_plural = 'Мероприятии'
+    
     title = models.CharField(max_length=50, verbose_name='Заголовок')
     description = models.CharField(max_length=50, verbose_name='описание')
     preview_image = models.ImageField(upload_to=upload_path, verbose_name='Картинка')

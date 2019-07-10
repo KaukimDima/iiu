@@ -7,6 +7,10 @@ def upload_path(instance, filename):
 
 class Advantage(models.Model):
 
+    class Meta:
+        verbose_name = 'Преимещества'
+        verbose_name_plural = 'Преимещества'
+
     count = models.IntegerField(verbose_name='количество')
     description = models.CharField(max_length=50, verbose_name='описание')
     icon = models.ImageField(upload_to=upload_path, verbose_name='иконка')
@@ -17,6 +21,10 @@ class Advantage(models.Model):
 
 class Contacts(models.Model):
 
+    class Meta:
+        verbose_name = 'Контакты общие'
+        verbose_name_plural = 'Контакты общие'
+
     name = models.CharField(max_length=20, verbose_name="Имя видное в базе")
     text = models.CharField(max_length=40, verbose_name='Выводимое знаечене')
     active = models.BooleanField(verbose_name="Активный", default=True)
@@ -26,6 +34,10 @@ class Contacts(models.Model):
 
 class ContactDetail(models.Model):
 
+    class Meta:
+        verbose_name = 'Контакы на странице'
+        verbose_name_plural = 'Контакы на странице'
+
     name = models.CharField(max_length=20, verbose_name="Имя видное в базе")
     text = models.CharField(max_length=40, verbose_name='Выводимое знаечене')
     active = models.BooleanField(verbose_name="Активный", default=True)
@@ -34,6 +46,10 @@ class ContactDetail(models.Model):
         return self.name 
 
 class Social(models.Model):
+
+    class Meta:
+        verbose_name = 'Социальные ссылки'
+        verbose_name_plural = 'Социальные ссылки'
 
     name = models.CharField(verbose_name="имя", max_length=30)
     icon = models.CharField(verbose_name="fa-fa icon", max_length=100)

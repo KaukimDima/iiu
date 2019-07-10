@@ -7,7 +7,11 @@ def upload_path(instance, filename):
 
 
 class BlogCategory(models.Model):
-    
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
     name = models.CharField(verbose_name=u"Имя категории", max_length=70)
     preview_image = models.ImageField(verbose_name=u"Картинка", upload_to=upload_path)
     slug = models.SlugField(verbose_name=u"Slug")
@@ -16,6 +20,10 @@ class BlogCategory(models.Model):
         return self.name 
 
 class Blog(models.Model):
+
+    class Meta:
+        verbose_name = 'Блог'
+        verbose_name_plural = 'Блоги'
 
     category = models.ForeignKey(BlogCategory, verbose_name=u"Категория", on_delete=models.CASCADE)
     user = models.ForeignKey(User, verbose_name=u"Автор", on_delete=models.CASCADE)
@@ -31,6 +39,11 @@ class Blog(models.Model):
 
 
 class Comments(models.Model): 
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+
     
     blog = models.ForeignKey(Blog, verbose_name='блог', on_delete=models.CASCADE)
     name = models.CharField(verbose_name=u"имя", max_length=30)

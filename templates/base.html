@@ -10,7 +10,7 @@
     <!-- The above 4 meta tags *Must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>IITU - Education &amp;</title>
+    <title>gr.iitu.kz</title>
 
     <!-- Favicon -->
     {% comment %} <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}"> {% endcomment %}
@@ -39,7 +39,7 @@
             </div>
             <!-- Follow Us -->
             <div class="follow-us">
-                <span>Follow us</span>
+                <span>Подписывайтесь</span>
                 {% for v in socials %}
                     <a href="{{ v.url }}"><i class="{{ v.icon }}" aria-hidden="true"></i></a>
                 {% endfor %}
@@ -54,7 +54,9 @@
 
                     <!-- Logo -->
                     <a class="nav-brand" href="/">
-                        <h1 style="color: #111; font-size: 32px;">IITU</h1>
+                        <h1 style="color: #111; font-size: 32px;">
+                            <img style="width: 130px;" src="{% static 'img/logo.png' %}" alt="">
+                        </h1>
                     </a>
 
                     <!-- Navbar Toggler -->
@@ -73,16 +75,15 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="{% url 'fronted:home' %}">Home</a></li>
-                                <li><a href="{% url 'blog:home' %}">Blog</a></li>
-                                <li><a href="{% url 'vacancy:home' %}">Vacancy</a></li>
-                                <li><a href="{% url 'frontend:contacts' %}">Contact</a></li>
+                                <li><a href="{% url 'blog:home' %}">Блог</a></li>
+                                <li><a href="{% url 'vacancy:home' %}">Вакансии</a></li>
+                                <li><a href="{% url 'frontend:contacts' %}">Контакты</a></li>
                             </ul>
 
                             <!-- Search Button -->
                             <div class="search-area">
                                 <form action="#" method="post">
-                                    <input type="search" name="search" id="search" placeholder="Search">
+                                    <input type="search" name="search" id="search" placeholder="Поиск по вакансиям">
                                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                 </form>
                             </div>
@@ -125,7 +126,7 @@
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
         <!-- Top Footer Area -->
-        <div class="top-footer-area">
+        {% comment %} <div class="top-footer-area">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -136,7 +137,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> {% endcomment %}
 
         <!-- Bottom Footer Area -->
         <div class="bottom-footer-area d-flex justify-content-between align-items-center">
@@ -148,7 +149,7 @@
             </div>
             <!-- Follow Us -->
             <div class="follow-us">
-                <span>Follow us</span>
+                <span>Подписывайтесь</span>
                 <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
