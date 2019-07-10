@@ -35,7 +35,6 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
 
-admin.site.site_header = "Admin"
-admin.site.site_title = "Admin Panel"
-admin.site.index_title = "Welcome to  site"
-
+admin.site.site_header = "Добро пожаловать"
+admin.site.site_title = "Админ панель"
+admin.site.index_title = "Добро пожаловать"

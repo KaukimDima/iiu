@@ -1,9 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div style="padding: 30vh 0; text-align: center;">
-    <p>Logged out!</p>
+  <style>
+  .footer-area {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  </style>
 
-    <a href="{% url 'login'%}">Click here to login again.</a>
+<div style="padding: 30vh 0; text-align: center;">
+    <p>Вы вышли из своего пользователя!</p>
+    <a href="{% url 'frontend:home'%}">Перейти на главную страницу.</a>
 </div>
 {% endblock %}

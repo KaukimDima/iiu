@@ -4,14 +4,12 @@
 {% block content %}
 
     <!-- ##### Hero Area Start ##### -->
-    <section class="hero-area bg-img bg-overlay-2by5" style="background-image: url({% static 'img/bg-img/bg1.jpg' %});">
+    <section class="hero-area bg-img bg-overlay-2by5" style="background-position: bottom; background-image: url({% static 'img/slider_main.jpg' %});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <!-- Hero Content -->
                     <div class="hero-content text-center">
-                        <h2>IITU</h2>
-                        <a href="#" class="btn clever-btn">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -49,7 +47,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h3>Popular Articles</h3>
+                        <h3>Статьи</h3>
                     </div>
                 </div>
             </div>
@@ -268,13 +266,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h3>Upcoming events</h3>
+                        <h3>Мероприятия</h3>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                {% if request.user.is_authenticated %}
                     {% for v in events %}
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="250ms">
@@ -296,9 +293,6 @@
                         </div>
                     </div>
                     {% endfor %}
-                {% else %}
-                    <h2 style="text-align: center; width: 100%;">Sorry, you should register or login</h2>
-                {% endif %}
             </div>
         </div>
     </section>

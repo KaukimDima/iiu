@@ -5,14 +5,17 @@
         .row {
             margin-right: 0;
         }
+        .footer-area {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
     </style>
 
     {% comment %} <h1>{{ request.user.pat }}</h1> {% endcomment %}
 
     {% if succes %}
-        <h2>Profile was changed</h2>
-    {% else %}
-        <h2>Profile</h2>
+        <h2>Данные были успешно изменены</h2>
     {% endif %}
 
     {% for field in form %}
@@ -54,7 +57,7 @@
             <div class="form-group">
                 <div class="row">
                     <div style="text-align: center;" class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3">
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="submit" class="btn btn-success">Подтвердить</button>
                     </div>
                 </div>
             </div>

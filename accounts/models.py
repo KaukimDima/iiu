@@ -61,7 +61,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     """
 
     class Meta:
-        verbose_name = u'Пользователь'
+        verbose_name = u'Пользователя'
         verbose_name_plural = u'Пользователи'
 
     email = models.EmailField(verbose_name='Email', unique=True)
@@ -165,6 +165,7 @@ class RoleAction(models.Model):
 
 
 class UserRole(models.Model):
+
     class Meta:
         verbose_name = 'Роль пользователя'
         verbose_name_plural = 'Роли пользователя'
