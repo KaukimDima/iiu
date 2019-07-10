@@ -91,8 +91,8 @@
                             <!-- Register / Login -->
                             {% if not request.user.is_authenticated %}
                                 <div class="register-login-area">
-                                    <a href="{% url 'accounts:register' %}" class="btn">Register</a>
-                                    <a href="{% url 'login' %}" class="btn active">Login</a>
+                                    <a href="{% url 'accounts:register' %}" class="btn">Регистрация</a>
+                                    <a href="{% url 'login' %}" class="btn active">Войти</a>
                                 </div>
                             {% else %}
                                 <div class="login-state d-flex align-items-center">
