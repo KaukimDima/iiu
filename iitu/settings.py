@@ -88,13 +88,8 @@ WSGI_APPLICATION = 'iitu.wsgi.application'
 
 DATABASES = {
     'default': {
-<<<<<<< HEAD
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'iitu_users', 'PASSWORD': 'mJArsPPM', 'USER': 'root', 'HOST': '127.0.0.1', 'PORT': '3306',
-=======
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
->>>>>>> 68b9e516c38718df88fd793744e256182e147082
     }
 }
 
@@ -136,17 +131,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-<<<<<<< HEAD
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-#STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, 'static'),
-#]
-=======
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
->>>>>>> 68b9e516c38718df88fd793744e256182e147082
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
