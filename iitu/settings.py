@@ -81,17 +81,30 @@ WSGI_APPLICATION = 'iitu.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+<<<<<<< HEAD
         'NAME': 'iitu_users', 'PASSWORD': 'mJArsPPM', 'USER': 'root', 'HOST': '127.0.0.1', 'PORT': '3306',
+=======
+        'NAME': 'iitu_db', 'PASSWORD': 'Vq6aGwwcQm', 'USER': 'iitu_user', 'HOST': '127.0.0.1', 'PORT': '3306',
+>>>>>>> 638347ca6a0e15b5c6c4cde6c6dc2be49f6b75f0
     }
 }
 
 
+<<<<<<< HEAD
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
 #}
+=======
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+>>>>>>> 638347ca6a0e15b5c6c4cde6c6dc2be49f6b75f0
 
 
 # Password validation
@@ -132,9 +145,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+<<<<<<< HEAD
 #STATICFILES_DIRS = [
 #    os.path.join(BASE_DIR, 'static'),
 #]
+=======
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
+>>>>>>> 638347ca6a0e15b5c6c4cde6c6dc2be49f6b75f0
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
