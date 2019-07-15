@@ -22,13 +22,12 @@
         <div class="x_panel">
           <div class="x_title">
               {% if form.errors %}
-              <p>Your username and password didn't match. Please try again.</p>
+              <p>Ваш пароль или логин не совпадает. Попробуйте еще раз.</p>
               {% endif %}
               
               {% if next %}
               {% if user.is_authenticated %}
-              <p>Your account doesn't have access to this page. To proceed,
-                  please login with an account that has access.</p>
+              <p>Ваш аккаунт не имеет прав доступа.</p>
               {% else %}
               <h5>Войдите, для просмотра материала</h5>
 
