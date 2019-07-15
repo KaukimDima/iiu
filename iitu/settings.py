@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'l8)cnt_ol4&)%wy-46!3e*s(bjktp1iay-vas!-u+877&-q!j('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost ', '.gr.iitu.kz', 'localhost']
 
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'iitu.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'iitu_db', 'PASSWORD': 'Vq6aGwwcQm', 'USER': 'iitu_user', 'HOST': '127.0.0.1', 'PORT': '3306',
+        'NAME': 'iitu_users', 'PASSWORD': 'mJArsPPM', 'USER': 'root', 'HOST': '127.0.0.1', 'PORT': '3306',
     }
 }
 
@@ -145,22 +145,22 @@ AUTH_USER_MODEL = 'accounts.User'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = False
-EMAIL_HOST = 'mail.waterpik.kz'
+EMAIL_HOST = 'gr.iitu.kz'
 EMAIL_PORT = 25
-EMAIL_HOST_USER = 'promo@waterpik.kz'
+EMAIL_HOST_USER = 'manager@gr.iitu.kz'
 EMAIL_HOST_PASSWORD = 'nU#k813p'
-DEFAULT_FROM_EMAIL = 'promo@waterpik.kz'
-DEFAULT_TO_EMAIL = 'dkaukin@gmail.com'
+DEFAULT_FROM_EMAIL = 'manager@gr.iitu.kz'
+DEFAULT_TO_EMAIL = ''
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# DEFAULT_FROM_EMAIL = 'promo@waterpik.kz'
-# SERVER_EMAIL = 'promo@waterpik.kz'
+# DEFAULT_FROM_EMAIL = 'manager@gr.iitu.kz'
+# SERVER_EMAIL = 'manager@gr.iitu.kz'
 # EMAIL_USE_TLS = False
-# EMAIL_HOST = 'mail.waterpik.kz'
+# EMAIL_HOST = 'gr.iitu.kz'
 # EMAIL_PORT = 25
-# EMAIL_HOST_USER = 'promo@waterpik.kz'
+# EMAIL_HOST_USER = 'manager@gr.iitu.kz'
 # EMAIL_HOST_PASSWORD = 'nU#k813p'
 
 BROKER_URL = 'redis://localhost:6379'
